@@ -17,10 +17,10 @@ function generateHTML (employees) {
     </html>`
     let people = ""
     // big shoutout to Voravich whose repo I looked at for understanding of this logic structure
-    employees.forEach(role => {
-      if (role.length) {
-        people += eval(`$(role[0].getRole()`)
-      }
+    // employees.forEach(role => {
+    //   if (role.length) {
+    //     people += eval(`$(role[0].getRole()`)
+    //   }
       employees.forEach(employee => {
         switch (employee.getRole()) {
           case "Manager":
@@ -57,7 +57,7 @@ function generateHTML (employees) {
             break;
         }
       })
-    })
+    // })
     const newHTML = starting + people + ending;
     return newHTML
 }

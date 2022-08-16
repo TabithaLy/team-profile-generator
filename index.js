@@ -21,7 +21,6 @@ function main () {
         .then(response => {
             switch (response.mainMenu) {
                 case 'Add team member':
-                    console.log('jsiafj')
                     addTeam();
                     break;
                 case 'Finish building team':
@@ -70,10 +69,7 @@ function addTeam () {
                         message: 'Office Number:',
                         },
                     ).then(managerData => {
-                        console.log(managerData)
-                        console.log(response)
                         const manager = new Manager (response.inputName, response.id, response.email, managerData.officeNum);
-                        console.log(manager);
                         employees.push(manager);
                         main ();
                     })
@@ -86,9 +82,7 @@ function addTeam () {
                         message: 'GitHub URL:',
                         },
                     ).then(engineerData => {
-                        // console.log(engineerData)
                         const engineer = new Engineer (response.inputName, response.id, response.email, engineerData.github);
-                        console.log(engineer);
                         employees.push(engineer);
                         main ();
                     })
@@ -101,9 +95,7 @@ function addTeam () {
                         message: 'School:',
                         },
                     ).then(internData => {
-                        // console.log(internData)
                         const intern = new Intern (response.inputName, response.id, response.email, internData.school);
-                        console.log(intern);
                         employees.push(intern);
                         main ();
                     })
@@ -114,7 +106,6 @@ function addTeam () {
 
 // shout out to Voravich S. from whom I got the write file function syntax
 function writeToFile(fileName, employees) {
-    console.log(employees)
     fs.writeFile(fileName, generateHTML(employees), (error) => {
         error ? console.error(error) : console.log('Yay! Check your dist folder for your dynamically generated team profile.');
     });
