@@ -1,6 +1,6 @@
 const Engineer = require("../lib/Engineer");
 
-// html template
+// html template function
 function generateHTML (employees) {
   console.log(employees)
     const starting = `<!DOCTYPE html>
@@ -16,11 +16,8 @@ function generateHTML (employees) {
     </body>
     </html>`
     let people = ""
-    // big shoutout to Voravich whose repo I looked at for understanding of this logic structure
-    // employees.forEach(role => {
-    //   if (role.length) {
-    //     people += eval(`$(role[0].getRole()`)
-    //   }
+    // big shoutout to Voravich S.whose repo I looked at for understanding of this logic structure
+    // switch case for adding card by role
       employees.forEach(employee => {
         switch (employee.getRole()) {
           case "Manager":
@@ -57,7 +54,7 @@ function generateHTML (employees) {
             break;
         }
       })
-    // })
+    // generate HTML document
     const newHTML = starting + people + ending;
     return newHTML
 }

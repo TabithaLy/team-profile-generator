@@ -1,3 +1,4 @@
+// requires
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./src/generateHTML.js');
@@ -7,7 +8,7 @@ const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
 const employees = [];
-
+// initial prompt
 function main () {
     return inquirer
         .prompt(
@@ -55,7 +56,7 @@ const generalQs = [
         choices: ['Manager', 'Engineer', 'Intern'],
     },
 ]
-// addTeam case function
+// addTeam switch case function hingeing on role
 function addTeam () {
     return inquirer
         .prompt(generalQs)
@@ -69,6 +70,7 @@ function addTeam () {
                         message: 'Office Number:',
                         },
                     ).then(managerData => {
+                        // adding new employees by role
                         const manager = new Manager (response.inputName, response.id, response.email, managerData.officeNum);
                         employees.push(manager);
                         main ();
@@ -82,6 +84,7 @@ function addTeam () {
                         message: 'GitHub URL:',
                         },
                     ).then(engineerData => {
+                        // adding new employees by role
                         const engineer = new Engineer (response.inputName, response.id, response.email, engineerData.github);
                         employees.push(engineer);
                         main ();
@@ -95,6 +98,7 @@ function addTeam () {
                         message: 'School:',
                         },
                     ).then(internData => {
+                        // adding new employees by role
                         const intern = new Intern (response.inputName, response.id, response.email, internData.school);
                         employees.push(intern);
                         main ();
