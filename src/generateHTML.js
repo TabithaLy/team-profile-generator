@@ -1,5 +1,8 @@
+const Engineer = require("../lib/Engineer");
+
 // html template
-function generateHTML (data) {
+function generateHTML (employees) {
+    console.log(employees)
     // if (!data.officeNum) {
     //     data.officeNum = "";
     // } else if (!data.github) {
@@ -7,8 +10,14 @@ function generateHTML (data) {
     // } else if (!data.school) {
     //     data.github = "";
     // }
-
-    `<!DOCTYPE html>
+    // map over array of employee objects
+    //  if role = manager
+            // return manager template literal
+        // if role = Engineer
+            //return engineer template literal
+        // if role = intern
+            //return intern template literal
+    return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -20,10 +29,10 @@ function generateHTML (data) {
     <div class="jumbotron jumbotron-fluid">
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">${data.inputName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${data.role}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">${data.id}</h6>
-      <a href="#" class="card-link">${data.email}</a>
+      <h5 class="card-title">${employees.inputName}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.role}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.id}</h6>
+      <a href="#" class="card-link">${employees.email}</a>
       <a href="#" class="card-link">hi</a>
     </div>
   </div>
