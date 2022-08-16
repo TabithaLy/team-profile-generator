@@ -106,6 +106,7 @@ function addTeam () {
 
 // shout out to Voravich S. from whom I got the write file function syntax
 function writeToFile(fileName, employees) {
+    console.log(employees)
     fs.writeFile(fileName, generateHTML(employees), (error) => {
         error ? console.error(error) : console.log('Yay! Check your dist folder for your dynamically generated team profile.');
     });

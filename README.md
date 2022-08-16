@@ -16,6 +16,10 @@ The purpose of this project was to dynamically generate an HTML document that di
 
 [Github](#github)
 
+## Application Video Link
+
+[https://drive.google.com/file/d/1W46gnNq00vfibY5OJnyxVKYXNepO8cDL/view](https://drive.google.com/file/d/1W46gnNq00vfibY5OJnyxVKYXNepO8cDL/view)
+
 ## Installation
 
 Run "node index.js" in command line while terminal is open to correct directory.
