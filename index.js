@@ -24,7 +24,6 @@ function main () {
             switch (response.mainMenu) {
                 case 'Add team member':
                     addTeam();
-                    // addMember();
                     break;
                 case 'Finish building team':
                     writeToFile('./dist/team-profiles.html')
