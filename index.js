@@ -87,7 +87,7 @@ function addTeam () {
                         },
                     ).then(engineerData => {
                         // console.log(engineerData)
-                        const engineer = new Engineer (engineerData.inputName, engineerData.id, engineerData.email, engineerData.github);
+                        const engineer = new Engineer (response.inputName, response.id, response.email, engineerData.github);
                         console.log(engineer);
                         employees.push(engineer);
                         main ();
@@ -102,7 +102,7 @@ function addTeam () {
                         },
                     ).then(internData => {
                         // console.log(internData)
-                        const intern = new Intern (internData.inputName, internData.id, internData.email, internData.school);
+                        const intern = new Intern (response.inputName, response.id, response.email, internData.school);
                         console.log(intern);
                         employees.push(intern);
                         main ();
