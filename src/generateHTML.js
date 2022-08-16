@@ -28,25 +28,27 @@ function generateHTML (employees) {
   <body>
     <div class="card" style="width: 18rem;">
     <div class="card-body manager">
-      <h5 class="card-title">${response.inputName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">${response.id}</h6>
-      <a href="#" class="card-link">${response.email}</a>
-      <a href="#" class="card-link">${managerData.officeNum}</a>
+      <h5 class="card-title">${employees.inputName}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.role}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.id}</h6>
+      <a href="#" class="card-link">${employees.email}</a>
+      <a href="#" class="card-link">${employees.officeNum}</a>
     </div>
+    <div class="card" style="width: 18rem;">
     <div class="card-body engineer">
-      <h5 class="card-title">${response.inputName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">${response.id}</h6>
-      <a href="#" class="card-link">${response.email}</a>
-      <a href="#" class="card-link">${engineerData.github}</a>
+      <h5 class="card-title">${employees.inputName}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.role}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.id}</h6>
+      <a href="#" class="card-link">${employees.email}</a>
+      <a href="#" class="card-link">${employees.github}</a>
     </div>
+    <div class="card" style="width: 18rem;">
     <div class="card-body intern">
-      <h5 class="card-title">${response.inputName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">${response.id}</h6>
-      <a href="#" class="card-link">${response.email}</a>
-      <a href="#" class="card-link">${internData.school}</a>
+      <h5 class="card-title">${employees.inputName}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.role}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">${employees.id}</h6>
+      <a href="#" class="card-link">${employees.email}</a>
+      <a href="#" class="card-link">${employees.school}</a>
     </div>
   </div>
   </div>
