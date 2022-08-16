@@ -6,6 +6,10 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
+let managerData = [];
+let engineerData = [];
+let internData = [];
+
 function main () {
     return inquirer
         .prompt(
@@ -20,6 +24,7 @@ function main () {
             switch (response.mainMenu) {
                 case 'Add team member':
                     addTeam();
+                    // addMember();
                     break;
                 case 'Finish building team':
                     writeToFile('./dist/team-profiles.html')
@@ -56,7 +61,6 @@ function addTeam () {
     return inquirer
         .prompt(generalQs)
         .then(response => {
-            // questions specific to role
             switch (response.role) {
                 case 'Manager':
                     inquirer

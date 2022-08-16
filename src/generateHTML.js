@@ -1,5 +1,13 @@
 // html template
 function generateHTML (data) {
+    if (!data.officeNum) {
+        data.officeNum = "";
+    } else if (!data.github) {
+        data.github = "";
+    } else if (!data.school) {
+        data.github = "";
+    }
+    
     `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -16,7 +24,7 @@ function generateHTML (data) {
       <h6 class="card-subtitle mb-2 text-muted">${data.role}</h6>
       <h6 class="card-subtitle mb-2 text-muted">${data.id}</h6>
       <a href="#" class="card-link">${data.email}</a>
-      <a href="#" class="card-link">${data.specificQs}</a>
+      <a href="#" class="card-link">${data.officeNum}${data.github}${data.school}</a>
     </div>
   </div>
   </div>
