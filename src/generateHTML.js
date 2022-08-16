@@ -1,3 +1,4 @@
+// html template
 function generateHTML (data) {
     `<!DOCTYPE html>
   <html lang="en">
@@ -11,7 +12,7 @@ function generateHTML (data) {
     <div class="jumbotron jumbotron-fluid">
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">${name}</h5>
+      <h5 class="card-title">${inputName}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${role}</h6>
       <h6 class="card-subtitle mb-2 text-muted">${id}</h6>
       <a href="#" class="card-link">${email}</a>

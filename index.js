@@ -23,16 +23,16 @@ function main () {
                     addTeam();
                     break;
                 case 'Finish building team':
-                    finishTeam();
+                    writeToFile('./dist/team-profiles.html', teamData)
                     break;
             }
         });
 }    
-
+// questions for everyone
 const generalQs = [
     {
         type: 'input',
-        name: 'name',
+        name: 'inputName',
         message: 'Name:',
     },
     {
@@ -52,7 +52,7 @@ const generalQs = [
         message: 'Email:',
     },
 ]
-
+// questions specific to role
 const specificQs = [
     {
         type: 'input',
@@ -71,20 +71,29 @@ const specificQs = [
     },
 ]
 function addTeam () {
-    
+    return inquirer
+        .prompt(generalQs)
+        .then(response => {
+            const teamMember = [response.name, response.id, response.email];
+            switch (response.role) {
+                case 'Manager':
+                    inquirer.prompt(specificQs.officeNum)
+                    break;
+                case 'Engineer':
+                    inquirer.prompt(specificQs.github)
+                    break;
+                case 'Intern':
+                    inquirer.prompt(specificQs.school)
+                    break;
+            }   
+        })
 }
 
-function finishTeam () {
-
+// shout out to Voravich S. from whom I got the write file function syntax
+function writeToFile(fileName,data) {
+    fs.writeFile(fileName, generateHTML(data), (error) => {
+        error ? console.error(error) : console.log('Yay! Check your dist folder for your dynamically generated team profile.');
+    });
 }
-
-
-// .then(data => {
-//     const htmlPageContent = generateHTML(data);
-
-//     fs.writeFile('index.html', htmlPageContent, (err) =>
-//       err ? console.log(err) : console.log('Successfully created index.html!')
-//     );
-// });
 
 main ();
