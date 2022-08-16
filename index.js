@@ -14,10 +14,10 @@ const generateHTML = ({ name, location, github, linkedin }) =>
   <div class="jumbotron jumbotron-fluid">
   <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${employeeName}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${employeeType}</h6>
-    <h6 class="card-subtitle mb-2 text-muted">${employeeID}</h6>
-    <a href="#" class="card-link">${employeeEmail}</a>
+    <h5 class="card-title">${name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${role}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">${id}</h6>
+    <a href="#" class="card-link">${email}</a>
     <a href="#" class="card-link">${other}</a>
   </div>
 </div>
