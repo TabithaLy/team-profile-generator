@@ -18,12 +18,11 @@ function main () {
         )
         .then(response => {
             switch (response.mainMenu) {
-    
                 case 'Add team member':
                     addTeam();
                     break;
                 case 'Finish building team':
-                    writeToFile('./dist/team-profiles.html', teamData)
+                    writeToFile('./dist/team-profiles.html')
                     break;
             }
         });
@@ -36,12 +35,6 @@ const generalQs = [
         message: 'Name:',
     },
     {
-        type: 'list',
-        name: 'role',
-        message: 'Role:',
-        choices: ['Manager', 'Engineer', 'Intern'],
-    },
-    {
         type: 'input',
         name: 'id',
         message: 'ID number?',
@@ -51,43 +44,50 @@ const generalQs = [
         name: 'email',
         message: 'Email:',
     },
-]
-// questions specific to role
-const specificQs = [
     {
-        type: 'input',
-        name: 'officeNum',
-        message: 'Office Number:',
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'GitHub URL:',
-    },
-    {
-        type: 'input',
-        name: 'school',
-        message: 'School:',
+        type: 'list',
+        name: 'role',
+        message: 'Role:',
+        choices: ['Manager', 'Engineer', 'Intern'],
     },
 ]
+
 function addTeam () {
     return inquirer
         .prompt(generalQs)
         .then(response => {
-            const teamMember = [response.name, response.id, response.email];
+            // questions specific to role
             switch (response.role) {
                 case 'Manager':
-                    inquirer.prompt(specificQs.officeNum)
+                    inquirer
+                        .prompt({
+                        type: 'input',
+                        name: 'officeNum',
+                        message: 'Office Number:',
+                        },
+                    );
                     break;
                 case 'Engineer':
-                    inquirer.prompt(specificQs.github)
+                    inquirer
+                        .prompt({
+                        type: 'input',
+                        name: 'github',
+                        message: 'GitHub URL:',
+                        },
+                    );
                     break;
                 case 'Intern':
-                    inquirer.prompt(specificQs.school)
+                    inquirer
+                        .prompt({
+                        type: 'input',
+                        name: 'school',
+                        message: 'School:',
+                        },
+                    );
                     break;
-            }   
-        })
-}
+            }; 
+        });          
+};
 
 // shout out to Voravich S. from whom I got the write file function syntax
 function writeToFile(fileName,data) {
