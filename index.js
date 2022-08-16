@@ -25,42 +25,56 @@ const generateHTML = ({ name, location, github, linkedin }) =>
 </body>
 </html>`;
 
-inquirer.prompt([
-    {
-      type: 'input',
-      name: 'managerName',
-      message: 'What is the name of your team manager?',
-    },
-    {
-      type: 'confirm',
-      name: 'addEngineer',
-      message: 'Would you like to add an engineer?',
-    },
-    {
-      type: 'input',
-      name: 'engineerName',
-      message: 'What is the name of the engineer?',
-    },
-    {
-      type: 'confirm',
-      name: 'addIntern',
-      message: 'Would you like to add an intern?',
-    },
-    {
-      type: 'input',
-      name: 'internName',
-      message: 'What is the name of the intern?',
-    },
-    {
-        type: 'input',
-        name: 'anotherIntern',
-        message: 'What is the name of the intern?',
-    },   
-  ])
-  .then((answers) => {
+inquirer
+    .prompt(
+        {
+            type: 'list',
+            name: 'mainMenu',
+            message: 'What would you like to do?',
+            choice: ['Add team member', 'Finish building team']
+        },
+    )
+    .then(response => {
+        switch (response.mainMenu) {
+
+            case 'Add team member':
+                addTeam();
+                break;
+            case 'Finish building team':
+                finishTeam();
+                break;
+        }
+    });
+    // {
+    //   type: 'confirm',
+    //   name: 'addEngineer',
+    //   message: 'Would you like to add an engineer?',
+    // },
+    // {
+    //   type: 'input',
+    //   name: 'engineerName',
+    //   message: 'What is the name of the engineer?',
+    // },
+    // {
+    //   type: 'confirm',
+    //   name: 'addIntern',
+    //   message: 'Would you like to add an intern?',
+    // },
+    // {
+    //   type: 'input',
+    //   name: 'internName',
+    //   message: 'What is the name of the intern?',
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'anotherIntern',
+    //     message: 'What is the name of the intern?',
+    // },   
+
+.then((answers) => {
     const htmlPageContent = generateHTML(answers);
 
     fs.writeFile('index.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
-  });
+});
