@@ -6,11 +6,10 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
-let managerData = [];
-let engineerData = [];
-let internData = [];
+let employees = [];
 
 function main () {
+    console.log('djsaido');
     return inquirer
         .prompt(
             {
@@ -23,6 +22,7 @@ function main () {
         .then(response => {
             switch (response.mainMenu) {
                 case 'Add team member':
+                    console.log('jsiafj')
                     addTeam();
                     break;
                 case 'Finish building team':
@@ -31,6 +31,8 @@ function main () {
             }
         });
 }    
+
+main ();
 // questions for everyone
 const generalQs = [
     {
@@ -68,7 +70,10 @@ function addTeam () {
                         name: 'officeNum',
                         message: 'Office Number:',
                         },
-                    );
+                    ).then(managerData => {
+                        console.log(managerData)
+                        const manager = new Manager (managerData.inputName, managerData.id, managerData.email, managerData.officeNum);
+                    }).then(main ());
                     break;
                 case 'Engineer':
                     inquirer
@@ -77,7 +82,10 @@ function addTeam () {
                         name: 'github',
                         message: 'GitHub URL:',
                         },
-                    );
+                    ).then(engineerData => {
+                        console.log(engineerData)
+                        const engineer = new Engineer (engineerData.inputName, engineerData.id, engineerData.email, engineerData.github);
+                    }).then(main ());
                     break;
                 case 'Intern':
                     inquirer
@@ -86,17 +94,19 @@ function addTeam () {
                         name: 'school',
                         message: 'School:',
                         },
-                    );
+                    ).then(internData => {
+                        console.log(internData)
+                        const intern = new Intern (internData.inputName, internData.id, internData.email, internData.school);
+                    }).then(main ());
                     break;
             }; 
         });          
 };
-
+// employees = [manager, engineer, intern]
 // shout out to Voravich S. from whom I got the write file function syntax
 function writeToFile(fileName,data) {
+    console.log(data)
     fs.writeFile(fileName, generateHTML(data), (error) => {
         error ? console.error(error) : console.log('Yay! Check your dist folder for your dynamically generated team profile.');
     });
 }
-
-main ();
