@@ -18,7 +18,7 @@ The purpose of this project was to dynamically generate an HTML document that di
 
 ## Application Video Link
 
-[https://drive.google.com/file/d/1WyZxnM5Xl4Sy970kt2PZDj-Q5i6tbnAs/view](https://drive.google.com/file/d/1WyZxnM5Xl4Sy970kt2PZDj-Q5i6tbnAs/view)
+[https://drive.google.com/file/d/1R42LpxedQH1jxAZIZC_-I66nwSYqQhuR/view](https://drive.google.com/file/d/1R42LpxedQH1jxAZIZC_-I66nwSYqQhuR/view)
 
 ## Installation
 

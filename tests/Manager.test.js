@@ -1,3 +1,4 @@
+// big shout out to Voravich S. whose repo I looked to supplement my understanding of this syntax
 const Employee = require('../lib/Employee');
 const Manager = require('../lib/Manager');
 
